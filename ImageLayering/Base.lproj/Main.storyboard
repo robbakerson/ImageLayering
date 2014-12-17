@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageLayering" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="target-puppy.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-mU-JG3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TargetCircle_clear.png" translatesAutoresizingMaskIntoConstraints="NO" id="jg0-6q-l50">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-1c-eAs">
+                                <rect key="frame" x="219" y="550" width="162" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="0Bn-HB-CAL"/>
+                                </constraints>
+                                <state key="normal" title="SAVE IMAGE">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZYH-Ib-pM0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPR-KW-l8W">
+                                <rect key="frame" x="256" y="512" width="88" height="30"/>
+                                <state key="normal" title="PICK IMAGE">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdH-ra-qaf"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7994_LEGO_City_Harbor.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wjr-Mw-G83">
+                                <rect key="frame" x="16" y="508" width="78" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="FNL-pi-N2C"/>
+                                    <constraint firstAttribute="height" constant="72" id="TqS-iQ-sI1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wjr-Mw-G83" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="488" id="2wL-uo-dHD"/>
+                            <constraint firstItem="wjr-Mw-G83" firstAttribute="leading" secondItem="jg0-6q-l50" secondAttribute="leading" constant="16" id="F0z-nA-WFo"/>
+                            <constraint firstAttribute="height" secondItem="jg0-6q-l50" secondAttribute="height" id="Gwg-OW-a9l"/>
+                            <constraint firstAttribute="centerX" secondItem="hPR-KW-l8W" secondAttribute="centerX" id="IRJ-BS-PEh"/>
+                            <constraint firstAttribute="width" secondItem="jg0-6q-l50" secondAttribute="width" id="JKd-sB-5Bq"/>
+                            <constraint firstItem="wjr-Mw-G83" firstAttribute="top" secondItem="jg0-6q-l50" secondAttribute="bottom" constant="-92" id="Lww-6t-QK3"/>
+                            <constraint firstAttribute="centerY" secondItem="jg0-6q-l50" secondAttribute="centerY" id="M9b-aE-adj"/>
+                            <constraint firstAttribute="centerX" secondItem="jg0-6q-l50" secondAttribute="centerX" id="Rac-X4-zSn"/>
+                            <constraint firstItem="BvG-1c-eAs" firstAttribute="centerX" secondItem="hPR-KW-l8W" secondAttribute="centerX" id="Uqa-nh-SIu"/>
+                            <constraint firstAttribute="centerX" secondItem="6gb-mU-JG3" secondAttribute="centerX" id="Vdy-sm-X6g"/>
+                            <constraint firstAttribute="centerY" secondItem="6gb-mU-JG3" secondAttribute="centerY" id="WbM-6B-dOH"/>
+                            <constraint firstItem="wjr-Mw-G83" firstAttribute="bottom" secondItem="BvG-1c-eAs" secondAttribute="bottom" id="cn1-qq-kMW"/>
+                            <constraint firstItem="BvG-1c-eAs" firstAttribute="top" secondItem="hPR-KW-l8W" secondAttribute="bottom" constant="8" id="iyW-8w-4ZP"/>
+                            <constraint firstAttribute="width" secondItem="6gb-mU-JG3" secondAttribute="width" id="jwQ-LX-lAm"/>
+                            <constraint firstItem="wjr-Mw-G83" firstAttribute="bottom" secondItem="jg0-6q-l50" secondAttribute="bottom" constant="-20" id="nQ2-gM-z4i"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hPR-KW-l8W" secondAttribute="bottom" constant="58" id="oMX-q1-VmW"/>
+                            <constraint firstAttribute="height" secondItem="6gb-mU-JG3" secondAttribute="height" id="vCm-q6-Gqf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="baseImage" destination="6gb-mU-JG3" id="WCj-pf-x1h"/>
+                        <outlet property="overlayImage" destination="jg0-6q-l50" id="K6o-le-Piw"/>
+                        <outlet property="pickImageBtn" destination="8bC-Xf-vdC" id="7PT-Vw-Bjh"/>
+                        <outlet property="previewImage" destination="wjr-Mw-G83" id="ZFE-Rs-yjC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="57"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="7994_LEGO_City_Harbor.jpg" width="560" height="380"/>
+        <image name="TargetCircle_clear.png" width="300" height="225"/>
+        <image name="target-puppy.jpg" width="600" height="378"/>
+    </resources>
+</document>
