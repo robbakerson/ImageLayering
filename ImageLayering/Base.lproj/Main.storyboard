@@ -27,7 +27,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="162" id="0Bn-HB-CAL"/>
                                 </constraints>
-                                <state key="normal" title="SAVE IMAGE">
+                                <state key="normal" title="2. SAVE IMAGE">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -35,8 +35,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPR-KW-l8W">
-                                <rect key="frame" x="256" y="512" width="88" height="30"/>
-                                <state key="normal" title="PICK IMAGE">
+                                <rect key="frame" x="247" y="512" width="105" height="30"/>
+                                <state key="normal" title="1. PICK IMAGE">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -50,33 +50,72 @@
                                     <constraint firstAttribute="height" constant="72" id="TqS-iQ-sI1"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAI-7j-Pvu">
+                                <rect key="frame" x="360" y="550" width="162" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="EVl-5W-OJe"/>
+                                </constraints>
+                                <state key="normal" title="4. Twitter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="twitterButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mc2-nB-kSW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObC-FL-U5G">
+                                <rect key="frame" x="360" y="512" width="162" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="jwq-EW-XsN"/>
+                                </constraints>
+                                <state key="normal" title="3. Facebook">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V3y-vv-Az9"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BULLSEYE" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jfz-Kg-mQ0">
+                                <rect key="frame" x="129" y="260" width="342" height="79"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="67"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wjr-Mw-G83" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="488" id="2wL-uo-dHD"/>
+                            <constraint firstItem="jg0-6q-l50" firstAttribute="centerX" secondItem="jfz-Kg-mQ0" secondAttribute="centerX" constant="-0.5" id="CTP-Rm-56J"/>
                             <constraint firstItem="wjr-Mw-G83" firstAttribute="leading" secondItem="jg0-6q-l50" secondAttribute="leading" constant="16" id="F0z-nA-WFo"/>
                             <constraint firstAttribute="height" secondItem="jg0-6q-l50" secondAttribute="height" id="Gwg-OW-a9l"/>
                             <constraint firstAttribute="centerX" secondItem="hPR-KW-l8W" secondAttribute="centerX" id="IRJ-BS-PEh"/>
                             <constraint firstAttribute="width" secondItem="jg0-6q-l50" secondAttribute="width" id="JKd-sB-5Bq"/>
                             <constraint firstItem="wjr-Mw-G83" firstAttribute="top" secondItem="jg0-6q-l50" secondAttribute="bottom" constant="-92" id="Lww-6t-QK3"/>
                             <constraint firstAttribute="centerY" secondItem="jg0-6q-l50" secondAttribute="centerY" id="M9b-aE-adj"/>
+                            <constraint firstItem="ObC-FL-U5G" firstAttribute="baseline" secondItem="hPR-KW-l8W" secondAttribute="baseline" id="Qq4-fP-JzW"/>
                             <constraint firstAttribute="centerX" secondItem="jg0-6q-l50" secondAttribute="centerX" id="Rac-X4-zSn"/>
+                            <constraint firstItem="jg0-6q-l50" firstAttribute="centerY" secondItem="jfz-Kg-mQ0" secondAttribute="centerY" constant="0.5" id="Ull-jp-yZg"/>
                             <constraint firstItem="BvG-1c-eAs" firstAttribute="centerX" secondItem="hPR-KW-l8W" secondAttribute="centerX" id="Uqa-nh-SIu"/>
+                            <constraint firstItem="ObC-FL-U5G" firstAttribute="leading" secondItem="hPR-KW-l8W" secondAttribute="trailing" constant="8" id="Uub-dC-3Gb"/>
                             <constraint firstAttribute="centerX" secondItem="6gb-mU-JG3" secondAttribute="centerX" id="Vdy-sm-X6g"/>
                             <constraint firstAttribute="centerY" secondItem="6gb-mU-JG3" secondAttribute="centerY" id="WbM-6B-dOH"/>
+                            <constraint firstItem="kAI-7j-Pvu" firstAttribute="top" secondItem="ObC-FL-U5G" secondAttribute="bottom" constant="8" symbolic="YES" id="aNi-4w-6hA"/>
                             <constraint firstItem="wjr-Mw-G83" firstAttribute="bottom" secondItem="BvG-1c-eAs" secondAttribute="bottom" id="cn1-qq-kMW"/>
                             <constraint firstItem="BvG-1c-eAs" firstAttribute="top" secondItem="hPR-KW-l8W" secondAttribute="bottom" constant="8" id="iyW-8w-4ZP"/>
                             <constraint firstAttribute="width" secondItem="6gb-mU-JG3" secondAttribute="width" id="jwQ-LX-lAm"/>
                             <constraint firstItem="wjr-Mw-G83" firstAttribute="bottom" secondItem="jg0-6q-l50" secondAttribute="bottom" constant="-20" id="nQ2-gM-z4i"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hPR-KW-l8W" secondAttribute="bottom" constant="58" id="oMX-q1-VmW"/>
                             <constraint firstAttribute="height" secondItem="6gb-mU-JG3" secondAttribute="height" id="vCm-q6-Gqf"/>
+                            <constraint firstItem="ObC-FL-U5G" firstAttribute="leading" secondItem="kAI-7j-Pvu" secondAttribute="leading" id="vm4-Xo-CeC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="baseImage" destination="6gb-mU-JG3" id="WCj-pf-x1h"/>
+                        <outlet property="fbButton" destination="ObC-FL-U5G" id="Na3-JW-UJH"/>
                         <outlet property="overlayImage" destination="jg0-6q-l50" id="K6o-le-Piw"/>
+                        <outlet property="overlayText" destination="jfz-Kg-mQ0" id="BG3-Ut-0Hg"/>
                         <outlet property="pickImageBtn" destination="8bC-Xf-vdC" id="7PT-Vw-Bjh"/>
                         <outlet property="previewImage" destination="wjr-Mw-G83" id="ZFE-Rs-yjC"/>
+                        <outlet property="twButton" destination="kAI-7j-Pvu" id="NLu-qI-G3b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

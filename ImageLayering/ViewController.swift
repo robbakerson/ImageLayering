@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import Social
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var pickImageBtn: UIView!
     @IBOutlet var saveImageBtn: UIView!
+    @IBOutlet weak var fbButton: UIButton!
+    @IBOutlet weak var twButton: UIButton!
+    
+    
     @IBOutlet weak var baseImage: UIImageView!
     @IBOutlet weak var overlayImage: UIImageView!
+    
+    @IBOutlet weak var overlayText: UITextField!
     @IBOutlet weak var previewImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +38,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     @IBAction func saveImage(sender: AnyObject) {
         println("save image")
-        var bottomImage:UIImage = baseImage.image! //background image
-        var imageTop:UIImage  = overlayImage.image!    //top image
+        //var bottomImage:UIImage = baseImage.image! //background image
+        //var imageTop:UIImage  = overlayImage.image!    //top image
  
-        var newSize = CGSizeMake(bottomImage.size.width, bottomImage.size.height)
-        UIGraphicsBeginImageContext( newSize )
+       //var newSize = CGSizeMake(view.layer.width, bottomImage.size.height)
+        UIGraphicsBeginImageContext( view.frame.size )
         
         // Draw the bottom Image
-        bottomImage.drawInRect(CGRectMake(0,0,newSize.width,newSize.height))
+        //bottomImage.drawInRect(CGRectMake(0,0,newSize.width,newSize.height))
+        
+        
+       //`[self.layer renderInContext:UIGraphicsGetCurrentContext()];
+        //drawLayer(<#layer: CALayer!#>, inContext: <#CGContext!#>)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        
         
         // Overlay the top Image
-        imageTop.drawInRect(CGRectMake(0,0,bottomImage.size.width,bottomImage.size.height), blendMode:kCGBlendModeNormal, alpha:1.0)
+        //imageTop.drawInRect(CGRectMake(0,0,bottomImage.size.width,bottomImage.size.height), blendMode:kCGBlendModeNormal, alpha:1.0)
         
         var newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
         var imageData = UIImagePNGRepresentation(newImage)
@@ -57,7 +70,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         println(selectedImage)
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
+    @IBAction func facebookButtonPushed(sender: UIButton) {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
+            var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            facebookSheet.setInitialText("This is an image I created")
+            facebookSheet.addImage(previewImage.image)
+            self.presentViewController(facebookSheet, animated: true, completion: nil)
+        } else {
+            var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
 
+    @IBAction func twitterButtonPushed(sender: UIButton) {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
+            var twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            twitterSheet.setInitialText("This is an image I created")
+            twitterSheet.addImage(previewImage.image)
+            self.presentViewController(twitterSheet, animated: true, completion: nil)
+        } else {
+            var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
