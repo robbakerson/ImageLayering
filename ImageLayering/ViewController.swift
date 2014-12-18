@@ -44,8 +44,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
        //var newSize = CGSizeMake(view.layer.width, bottomImage.size.height)
         UIGraphicsBeginImageContext( view.frame.size )
         
-        // Draw the bottom Image
+        /// Draw the bottom Image
         //bottomImage.drawInRect(CGRectMake(0,0,newSize.width,newSize.height))
+        
         
         
        //`[self.layer renderInContext:UIGraphicsGetCurrentContext()];
