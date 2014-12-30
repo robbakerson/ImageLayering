@@ -10,23 +10,57 @@ import UIKit
 import Social
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var currentBorderIndex:Int = 0;
+    @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
+    @IBOutlet var swipeRight: UISwipeGestureRecognizer!
+    @IBOutlet weak var pickImageBtn: UIButton!
 
-    @IBOutlet var pickImageBtn: UIView!
     @IBOutlet var saveImageBtn: UIView!
     @IBOutlet weak var fbButton: UIButton!
     @IBOutlet weak var twButton: UIButton!
     
+    @IBOutlet weak var cardStage: UIView!
     
     @IBOutlet weak var baseImage: UIImageView!
     @IBOutlet weak var overlayImage: UIImageView!
     
     @IBOutlet weak var overlayText: UITextField!
-    @IBOutlet weak var previewImage: UIImageView!
+    var previewImage: UIImageView! = UIImageView();
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBAction func swipeLeft(sender: AnyObject) {
+        println("SWIPE LEFT")
+        //change the image
+        currentBorderIndex++
+        if(currentBorderIndex > 7)
+        {
+            currentBorderIndex = 0;
+        }
+        //overlayImage.animationDuration
+        overlayImage.image = UIImage(named: "TargetCircle_clear-\(currentBorderIndex).png")
+        
+        
+    }
+    @IBAction func swipeRight(sender: AnyObject) {
+        println("SWIPE Right")
+        //change the image
+        currentBorderIndex--
+        if(currentBorderIndex < 0)
+        {
+            currentBorderIndex = 7;
+        }
+        //overlayImage.animationDuration
+        overlayImage.image = UIImage(named: "TargetCircle_clear-\(currentBorderIndex).png")
+        
+        
+    }
+    
+
     @IBAction func pickImage(sender: AnyObject) {
+        println("PICK IMAGE")
         var imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
@@ -42,7 +76,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //var imageTop:UIImage  = overlayImage.image!    //top image
  
        //var newSize = CGSizeMake(view.layer.width, bottomImage.size.height)
-        UIGraphicsBeginImageContext( view.frame.size )
+        UIGraphicsBeginImageContext(cardStage.frame.size )
         
         /// Draw the bottom Image
         //bottomImage.drawInRect(CGRectMake(0,0,newSize.width,newSize.height))
@@ -51,7 +85,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
        //`[self.layer renderInContext:UIGraphicsGetCurrentContext()];
         //drawLayer(<#layer: CALayer!#>, inContext: <#CGContext!#>)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        cardStage.layer.renderInContext(UIGraphicsGetCurrentContext())
         
         
         // Overlay the top Image
@@ -71,7 +105,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         println(selectedImage)
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
-    @IBAction func facebookButtonPushed(sender: UIButton) {
+    
+    @IBAction func postToFaceBook(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             facebookSheet.setInitialText("This is an image I created")
@@ -83,8 +118,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
+    
 
-    @IBAction func twitterButtonPushed(sender: UIButton) {
+
+    @IBAction func twitterButtonPushed(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             var twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             twitterSheet.setInitialText("This is an image I created")
